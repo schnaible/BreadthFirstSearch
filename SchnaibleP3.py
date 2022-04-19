@@ -40,7 +40,7 @@ def BreadthFirstSearch(I, s, t):
 
     while not Q.empty() and visited[t] != 1:
         # print(visited)
-        u = Q.get()                      # what is u?
+        u = Q.get()                      
         # print('u:', u)
         # for each neighbor v of u:
         for v in [(u[0]+1, u[1]), (u[0]-1, u[1]), (u[0], u[1]+1), (u[0], u[1]-1)]:
@@ -92,7 +92,6 @@ def BestFirstSearch(I, s, t):
 
     # print(prev)
     while not Q.empty() and visited[t] != 1:
-        # How is deletemin different from delete? Does Q.get() work when using queue.PriorityQueue()
         u = Q.get()
         # for each neighbor v of u:
         for v in [(u[1][0]+1, u[1][1]), (u[1][0]-1, u[1][1]), (u[1][0], u[1][1]+1), (u[1][0], u[1][1]-1)]:
@@ -104,7 +103,7 @@ def BestFirstSearch(I, s, t):
                     d[v[0], v[1]] = d[u[1][0], u[1][1]] + 1
                     prev[v] = u[1]
                     h = hFunc(v, t)
-                    Q.put((d[v] + h, v))  # What are we inserting here?
+                    Q.put((d[v] + h, v))  
 
     prev[t] = u[1]
 
